@@ -32,6 +32,11 @@ void clean_student(Student st) {
 	st.avr_mark = 0;
 }
 
+Student get_best_student(Student st1, Student st2, Student st3) {
+	return st1.avr_mark> st2.avr_mark && st1.avr_mark> st3.avr_mark ? st1 
+		:(st2.avr_mark > st3.avr_mark ? st2:st3) ;
+}
+
 
 int main() {
 	Student st1, st2, st3;
@@ -43,6 +48,9 @@ int main() {
 	cout << st1.convert_to_string ()<< endl;
 	cout << st2.convert_to_string() << endl;
 	cout << st3.convert_to_string() << endl;
+
+	Student st = get_best_student(st1, st2, st3);
+	cout << "Best student: " << st.convert_to_string() << endl;
 
 
 return 0;
